@@ -310,7 +310,9 @@ static HSDownloadManager *_downloadManager;
     NSUInteger expectedSize = sessionModel.totalLength;
     CGFloat progress = 1.0 * receivedSize / expectedSize;
 
-    sessionModel.progressBlock(receivedSize, expectedSize, progress);
+    if (sessionModel) {
+        sessionModel.progressBlock(receivedSize, expectedSize, progress);
+    }
 }
 
 /**
